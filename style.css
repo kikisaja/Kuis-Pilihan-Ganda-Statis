@@ -1,0 +1,199 @@
+:root {
+    --bg-light: #f1f5f9;
+    --panel-bg: #ffffff;
+    --text-dark: #1e293b;
+    --stroke-dark: #1e293b;
+    --pop-purple: #7209b7;
+    --pop-yellow: #ffb703;
+    --color-correct: #06d6a0; /* Hijau jika benar */
+    --color-wrong: #ff477e;   /* Pink/Merah jika salah */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.quiz-container {
+    background-color: var(--panel-bg);
+    padding: 35px 25px;
+    border-radius: 24px;
+    border: 3px solid var(--stroke-dark);
+    box-shadow: 6px 6px 0px var(--stroke-dark);
+    max-width: 500px;
+    width: 100%;
+    animation: popIn 0.25s ease-out;
+}
+
+/* Header & Progress Bar */
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #64748b;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 12px;
+    background-color: #e2e8f0;
+    border: 2px solid var(--stroke-dark);
+    border-radius: 20px;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 33.3%;
+    height: 100%;
+    background-color: var(--pop-purple);
+    transition: width 0.3s ease;
+}
+
+/* Area Soal Pertanyaan */
+#text-pertanyaan {
+    font-size: 1.3rem;
+    font-weight: 800;
+    text-align: left;
+    line-height: 1.4;
+    margin-bottom: 25px;
+}
+
+/* List Opsi Jawaban */
+.options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.btn-option {
+    width: 100%;
+    text-align: left;
+    padding: 14px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #f8fafc;
+    border: 2px solid var(--stroke-dark);
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px var(--stroke-dark);
+    transition: all 0.1s ease;
+    outline: none;
+}
+
+.btn-option:hover:not(:disabled) {
+    background-color: #f1f5f9;
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px var(--stroke-dark);
+}
+
+/* --- STATE VALIDASI WARNA JAWABAN (Disuntik via JS) --- */
+.btn-option.correct {
+    background-color: var(--color-correct) !important;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.btn-option.wrong {
+    background-color: var(--color-wrong) !important;
+    color: #ffffff;
+}
+
+/* Tombol Aksi Pop Art */
+.btn-pop {
+    width: 100%;
+    background-color: var(--pop-purple);
+    color: #ffffff;
+    border: 3px solid var(--stroke-dark);
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px var(--stroke-dark);
+    transition: all 0.1s ease;
+}
+
+.btn-pop:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px var(--stroke-dark);
+}
+
+.btn-pop:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--stroke-dark);
+}
+
+.btn-yellow {
+    background-color: var(--pop-yellow);
+    color: var(--text-dark);
+}
+
+/* Tampilan Hasil */
+.result-title {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--pop-purple);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.score-display {
+    display: inline-block;
+    background-color: #f8fafc;
+    border: 3px solid var(--stroke-dark);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    padding-top: 25px;
+    box-shadow: 5px 5px 0px var(--stroke-dark);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.score-display span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.score-display small {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+#result-message {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.95); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
