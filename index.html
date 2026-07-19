@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Pintar Pop Art 🧠✨</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="quiz-container" id="quiz-box">
+        <header class="quiz-header">
+            <div class="progress-info">
+                <span>SOAL: <strong id="current-question-num">1</strong>/3</span>
+                <span>SKOR: <strong id="live-score">0</strong></span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-fill" id="bar-fill"></div>
+            </div>
+        </header>
+
+        <main class="quiz-body">
+            <h2 id="text-pertanyaan">Loading pertanyaan... 👀</h2>
+            
+            <div class="options-list" id="wrapper-opsi">
+                </div>
+        </main>
+
+        <footer class="quiz-footer">
+            <button id="btn-next" class="btn-pop hidden">Soal Berikutnya ➡️</button>
+        </footer>
+    </div>
+
+    <div class="quiz-container hidden" id="result-box">
+        <h1 class="result-title">🎉 KUIS SELESAI!</h1>
+        <div class="score-display">
+            <span id="final-score">0</span>
+            <small>Skor Akhir Anda</small>
+        </div>
+        <p id="result-message">Luar biasa! Pertahankan prestasimu.</p>
+        <button id="btn-restart" class="btn-pop btn-yellow">Main Lagi 🔄</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
